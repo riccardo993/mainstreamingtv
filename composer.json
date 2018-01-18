@@ -1,0 +1,21 @@
+{
+    "name": "riccardo993/mainstreamingtv",
+    "description": "PHP SDK for mainstreaming.tv APIs",
+    "keywords": [
+        "mainstreaming",
+        "mainstreamingtv",
+        "mainstreaming.tv",
+        "php"
+    ],
+    "require": {
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "riccardo993\\mainstreamingtv\\": "src/"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
