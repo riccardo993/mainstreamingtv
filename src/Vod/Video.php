@@ -27,6 +27,7 @@ class Video{
     protected $title;
     protected $uploadDate;
     protected $visualizations;
+    protected $thumbnail;
 
     const STATUS_MAP = [
         0 => 'queued',
@@ -34,6 +35,8 @@ class Video{
         32 => 'ready',
         24 => 'error'
     ];
+
+    const THUMBNAIL_URI = 'https://video.mainstreaming.tv/image/{{contentId}}/poster';
 
     public function __construct(array $video) {
         $this->contentId = $video['contentId'];
@@ -61,6 +64,7 @@ class Video{
         $this->title = $video['title'];
         $this->uploadDate = $video['uploadDate'];
         $this->visualizations = $video['visualizations'];
+        $this->thumbnail = str_replace("{{contentId}}", $this->contentId, self::THUMBNAIL_URI);
     }
 
     public function getContentId()
@@ -74,6 +78,16 @@ class Video{
             return self::STATUS_MAP[ $this->status ];
 
         return 'error';
+    }
+
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+
+    public function getVisualizations()
+    {
+        return $this->visualizations;
     }
 }
 
